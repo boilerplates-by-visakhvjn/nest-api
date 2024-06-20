@@ -37,8 +37,6 @@ npm run start // for production
 
 ## API Collection
 
-We like to maintain a `Postman` collection that has the basic API endpoints in it. 
-
-<!-- https://www.postman.com/lunar-module-astronomer-25021796/workspace/boilerplates/collection/27784767-90e6e01c-f8ff-4154-83c4-40f5273ae364?action=share&creator=27784767 -->
+We like to maintain a `Postman` collection that has the basic API endpoints in it. For some reason github doesn't allow to attach the URL here currently. This needs to be figured out.
 
  
