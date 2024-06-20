@@ -1,7 +1,12 @@
 import * as argon2 from 'argon2';
 
-import { Injectable } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateAccountDto } from './dto/create-account.dto';
+import { GetAccountDto } from './dto/get-account.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -22,6 +27,34 @@ export class AccountService {
         id: accountId,
       },
     });
+
+    if (!account) {
+      throw new NotFoundException();
+    }
+
+    delete account.password;
+    return account;
+  }
+
+  async get(getAcccountDto: GetAccountDto) {
+    const account = await this.prismaService.account.findFirst({
+      where: {
+        email: getAcccountDto.email,
+      },
+    });
+
+    if (!account) {
+      throw new ForbiddenException();
+    }
+
+    const passwordMatches = await argon2.verify(
+      account.password,
+      getAcccountDto.password,
+    );
+
+    if (!passwordMatches) {
+      throw new ForbiddenException();
+    }
 
     delete account.password;
     return account;
