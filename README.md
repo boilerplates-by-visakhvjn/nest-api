@@ -39,6 +39,6 @@ npm run start // for production
 
 We like to maintain a `Postman` collection that has the basic API endpoints in it. 
 
-https://api.postman.com/collections/27784767-90e6e01c-f8ff-4154-83c4-40f5273ae364?access_key=PMAT-01J0T6YZ7MS8Q5GCAPNHK3WCEE
+https://www.postman.com/lunar-module-astronomer-25021796/workspace/boilerplates/collection/27784767-90e6e01c-f8ff-4154-83c4-40f5273ae364?action=share&creator=27784767
 
  
