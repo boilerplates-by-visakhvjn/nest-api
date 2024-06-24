@@ -18,6 +18,13 @@ export class AuthService {
       'JWT_ACCESS_TOKEN_EXPIRES_IN',
     );
 
+    const JWT_REFRESH_TOKEN_SECRET = this.configService.get(
+      'JWT_REFRESH_TOKEN_SECRET',
+    );
+    const JWT_REFRESH_TOKEN_EXPIRES_IN = this.configService.get(
+      'JWT_REFRESH_TOKEN_EXPIRES_IN',
+    );
+
     const payload = {
       sub: jwtPayloadDto.id,
       email: jwtPayloadDto.email,
@@ -28,6 +35,11 @@ export class AuthService {
       secret: JWT_ACCESS_TOKEN_SECRET,
     });
 
-    return { accessToken };
+    const refreshToken = this.jwtService.sign(payload, {
+      expiresIn: JWT_REFRESH_TOKEN_EXPIRES_IN,
+      secret: JWT_REFRESH_TOKEN_SECRET,
+    });
+
+    return { accessToken, refreshToken };
   }
 }
