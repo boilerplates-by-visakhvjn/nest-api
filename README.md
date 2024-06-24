@@ -25,6 +25,8 @@ The env file should contain the following details
 DATABSE_URL=
 JWT_ACCESS_TOKEN_SECRET=
 JWT_ACCESS_TOKEN_EXPIRES_IN=
+JWT_REFRESH_TOKEN_SECRET=
+JWT_REFRESH_TOKEN_EXPIRES_IN=
 ```
 
 We use `Prisma` ORM for connecting to our database and we prefer using `Postgres` for now. Feel free to make changes to `/prisma/schema.prisma` if you have any other database providers.
