@@ -22,11 +22,15 @@ npm install
 The env file should contain the following details
 
 ```
-DATABSE_URL=
-JWT_ACCESS_TOKEN_SECRET=
-JWT_ACCESS_TOKEN_EXPIRES_IN=
-JWT_REFRESH_TOKEN_SECRET=
-JWT_REFRESH_TOKEN_EXPIRES_IN=
+DATABSE_URL=<connection string of your database provider>
+
+JWT_ACCESS_TOKEN_SECRET=<A random set of characters that are hard to crack>
+JWT_ACCESS_TOKEN_EXPIRES_IN=<keep this one small usually 1d>
+JWT_REFRESH_TOKEN_SECRET=<A random set of characters that are hard to crack>
+JWT_REFRESH_TOKEN_EXPIRES_IN=<keep this one big usually 30d>
+
+SENDGRID_API_KEY=<the API Key you get from send grid developer settings>
+EMAIL_FROM_ADDRESS=<the from address from which your emails will be sent. Usually the one verified on send grid>
 ```
 
 We use `Prisma` ORM for connecting to our database and we prefer using `Postgres` for now. Feel free to make changes to `/prisma/schema.prisma` if you have any other database providers.
