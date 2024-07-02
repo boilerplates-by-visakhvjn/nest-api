@@ -52,13 +52,10 @@ https://www.postman.com/lunar-module-astronomer-25021796/workspace/boilerplates/
     ``` 
     docker pull vjnvisakh/boilerplates-nestjs-api
     ```
- 2. To application needs a `.env` file to run. You will have to create `.env` file in the root and add values as mentioned above.
+ 2. The application needs environment variables to be added to `config/.env-for-docker` file. Create a file named `.env-for-docker` inside the `config` folder and add the values as mentioned above. Remember `Dockerfile` is to be used when your database is hosted externally.
  3. Once done you can use this command to start up the project
     ```
-    docker run 
-    -v ./.env:/app/.env 
-    -p 3000:3000 
-    vjnvisakh/boilerplates-nestjs-api
+    docker run -v ./config/.env-for-docker:/app/.env -p 3000:3000 vjnvisakh/boilerplates-nestjs-api
     ``` 
 
     The command basically mounts the `.env` file created by you into the application's internal `.env` file.
