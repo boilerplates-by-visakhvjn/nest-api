@@ -37,6 +37,10 @@ npm run start:dev // for development
 npm run start // for production
 ```
 
+### Husky and Pre-Commit Hooks
+
+The project checks for lint errors on each commit via Husky and eslint
+
 ## API Collection
 
 We like to maintain a `Postman` collection that has the basic API endpoints in it. 
