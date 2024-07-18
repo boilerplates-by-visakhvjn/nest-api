@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:latest
+    container_name: database
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+    ports:
+      - "${DATABASE_PORT}:5432"
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    env_file:
+      - './config/.env-for-docker-compose'
+    networks:
+      - backend
+
+volumes:
+  database_data:
+    driver: local
+
+networks:
+  backend:
+    driver: bridge
