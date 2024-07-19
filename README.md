@@ -39,7 +39,7 @@ npm run start // for production
 
 ### Husky and Pre-Commit Hooks
 
-The project checks for lint errors on each commit via Husky and eslint
+The project checks for lint errors (eslint) and runs all test cases(jest) on each commit via Husky
 
 ## API Collection
 
